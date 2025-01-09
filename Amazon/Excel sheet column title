@@ -15,7 +15,7 @@ class Solution {
             output.append(c);
         }
         // Reverse the output string...
-        // Bcause we have found characters from right to left...
+        // Bcause we have found characters from right to left
         output.reverse();
         // Return the reversed string.
         return output.toString();

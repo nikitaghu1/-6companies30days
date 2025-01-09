@@ -1,6 +1,6 @@
 class Solution {
     static void linkdelete(Node head, int n, int m) {
-        // your code here
+       
         
         Node curr=head;
         while(curr!=null){

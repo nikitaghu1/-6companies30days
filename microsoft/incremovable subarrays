@@ -1,0 +1,32 @@
+class Solution {
+    public int incremovableSubarrayCount(int[] nums) {
+        //brute force with tc O(n^3) and sc O(n)
+        int n=nums.length;
+        int count=0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                if(isremInc(nums,i,j)){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    private boolean isremInc(int[] nums,int i,int j){
+        
+        List<Integer> remaining=new ArrayList<>();
+        for(int k=0;k<nums.length;k++){
+            if(k<i||k>j){
+                remaining.add(nums[k]);
+            }
+        }
+        for(int s=1;s<remaining.size();s++){
+           if(remaining.get(s)<=remaining.get(s-1)){
+            return false;
+           }
+        }
+        return true;
+        
+        
+    }
+}

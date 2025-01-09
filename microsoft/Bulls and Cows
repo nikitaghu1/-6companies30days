@@ -41,7 +41,7 @@ class Solution {
             arr[g-'0']--;
         }
        }*/
-       //single pass optimal approach with same tc and sc as better approach
+       //single pass optimal approach  same tc and sc as better approach
          if(arr[s-'0']<0)countB++;
          if(arr[g-'0']>0)countB++;
          arr[s-'0']++;

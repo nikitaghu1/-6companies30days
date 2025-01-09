@@ -8,4 +8,4 @@ class Solution {
         return dx*dx+dy*dy<=radius*radius;
     }
 }
-//constant tc and sc
+//optimal approach constant tc and sc

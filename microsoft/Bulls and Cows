@@ -1,0 +1,54 @@
+class Solution {
+    public String getHint(String secret, String guess) {
+      
+       int countA=0;
+       int countB=0;
+      
+       //tc O(n) and sc O(n) brute force approach
+       /*Map<Character,Integer> map=new HashMap<>();
+       for(int i=0;i<secret.length();i++){
+        char c=secret.charAt(i);
+        if(c==guess.charAt(i)){
+            countA++;
+        }else{
+            map.put(c,map.getOrDefault(c,0)+1);
+
+        }
+       }
+       for(int i=0;i<guess.length();i++){
+        char c=guess.charAt(i);
+        if(c!=secret.charAt(i) && map.containsKey(c) && map.get(c)>0){
+            countB++;
+            map.put(c, map.get(c) - 1);
+       }
+       }*/
+       //better approach tc is linear and sc is constant as array of size 10 is used
+       int arr[]=new int[10];
+       for(int i=0;i<secret.length();i++){
+        char s=secret.charAt(i);
+        char g=guess.charAt(i);
+        if(s==g){
+            countA++;
+        }else{
+           /* arr[s-'0']++;
+        }
+       }
+       for(int i=0;i<secret.length();i++){
+        char s=secret.charAt(i);
+        char g=guess.charAt(i);
+        if(s!=g && arr[g-'0']>0){
+            countB++;
+            arr[g-'0']--;
+        }
+       }*/
+       //single pass optimal approach with same tc and sc as better approach
+         if(arr[s-'0']<0)countB++;
+         if(arr[g-'0']>0)countB++;
+         arr[s-'0']++;
+         arr[g-'0']--;
+
+        }
+       }
+         return countA+"A"+countB+"B";
+    }
+}

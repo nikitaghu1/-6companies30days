@@ -1,6 +1,6 @@
 class Solution {
     public int incremovableSubarrayCount(int[] nums) {
-        //brute force with tc O(n^3) and sc O(n)
+        //brute force tc O(n^3) and sc O(n)
         int n=nums.length;
         int count=0;
         for(int i=0;i<n;i++){

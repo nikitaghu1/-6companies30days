@@ -1,0 +1,36 @@
+class Solution {
+    public int[] maxSubsequence(int[] nums, int k) {
+        //approach 1 sorting tc O(nlogn) sc O(n) optimisesd
+        /*int[][] temp=new int[nums.length][2];
+        for(int i=0;i<nums.length;i++){
+            temp[i][0]=nums[i];
+            temp[i][1]=i;
+        }
+        Arrays.sort(temp,(a,b)->b[0]-a[0]);
+        int topk[][]=Arrays.copyOfRange(temp,0,k);
+        Arrays.sort(topk,(a,b)->a[1]-b[1]);
+        int arr[]=new int[k];
+        for(int i=0;i<k;i++){
+            arr[i]=topk[i][0];
+        }
+        return arr;*/
+        //2nd approach min heap tc O(nlogk) sc O(k)
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a,b)->a[0]-b[0]);
+        for(int i=0;i<nums.length;i++){
+            pq.add(new int[]{nums[i],i});
+
+        }
+        while(pq.size()>k){
+            pq.poll();
+        }
+        List<int[]> topk=new ArrayList<>(pq);
+        topk.sort((a,b)->a[1]-b[1]);
+        int arr[]=new int[k];
+        for(int i=0;i<k;i++){
+            arr[i]=topk.get(i)[0];
+        }
+        return arr;
+      
+
+    }
+}
